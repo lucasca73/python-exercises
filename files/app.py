@@ -112,9 +112,30 @@ profile = None
 def buy_car():
     global profile
 
-    files = [f for f in os.listdir('./db') if os.path.isfile(f)]
+    print('[ availables ]')
+    files = [f for f in os.listdir('.') if os.path.isfile(f)]
+    i = 0
     for f in files:
         splited = f.split('_')
+        if splited[0] == 'db.car':
+            plate = splited[1]
+            other_files = [f for f in os.listdir('.') if os.path.isfile(f)]
+
+            bought = False
+
+            for f2 in other_files:
+                splited2 = f2.split('_')
+                # search if there is any bought
+                if len(splited2) == 3 and splited2[2] == plate:
+                    bought = True
+                    break
+
+            if not bought:
+                ld = Car.load(plate)
+                print('{} -> plate:{}\n   model:{}\n'.format(i,ld.plate, ld.model) )
+                i += 1
+
+    print('- - - - -')
 
     if profile:
         plate = raw_input('type the cars plate: ')
@@ -146,7 +167,7 @@ def my_cars():
     global profile
     if profile:
 
-        files = [f for f in os.listdir('./db') if os.path.isfile(f)]
+        files = [f for f in os.listdir('.') if os.path.isfile(f)]
         for f in files:
             splited = f.split('_')
             if len(splited) == 3 and splited[1] == profile.cpf:

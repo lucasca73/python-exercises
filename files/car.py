@@ -20,7 +20,7 @@ class Car():
 
     @staticmethod
     def file_path(plate):
-        return './db/car_{}'.format(plate)
+        return 'db.car_{}'.format(plate)
 
     @staticmethod
     def load(plate):

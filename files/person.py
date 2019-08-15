@@ -20,7 +20,7 @@ class Person():
 
     @staticmethod
     def file_path(cpf):
-        return 'db/person_{}'.format(cpf)
+        return 'db.person_{}'.format(cpf)
 
     @staticmethod
     def load(cpf):
@@ -59,7 +59,7 @@ class PersonCar():
 
     @staticmethod
     def file_path(cpf, plate):
-        return 'db/buy_{}_{}'.format(cpf, plate)
+        return 'db.buy_{}_{}'.format(cpf, plate)
 
     @staticmethod
     def load(cpf, plate):
