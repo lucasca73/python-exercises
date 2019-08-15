@@ -44,6 +44,7 @@ def remove_car():
         decision = raw_input('remove? (y/n): ')
         if decision == 'y' or decision == 'Y':
             ld_car.remove()
+    _ = raw_input('...')
 
 def search_car():
     print('searching a car...')
@@ -151,7 +152,7 @@ def buy_car():
 
     _ = raw_input('...')
 
-def remove_car():
+def remove_buy():
     global profile
     if profile:
         plate = raw_input('type the cars plate: ')
@@ -184,7 +185,7 @@ def person_buy_menu(person):
     profile = person
     # Setting up menu
     p_menu.add('buy car', buy_car )
-    p_menu.add('remove car', remove_car )
+    p_menu.add('remove car', remove_buy )
     p_menu.add('my cars', my_cars )
     p_menu.add('Back', leave )
 
